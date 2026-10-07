@@ -4,7 +4,7 @@ Casos de borda e de contrato. Gere `tests/api.test.js` com exatamente **50** cha
 
 **TOTAL DE CENÁRIOS: 50** (CT-01 a CT-50).
 
-## Contrato resumido (completo no spec.md)
+## Contrato resumido 
 - Node.js 20, Express 4, better-sqlite3, tudo JSON, rotas e campos em português; portas 8002 e 8000 com o mesmo banco. Erros `{"erro":"<codigo>"}`: 422 placa_invalida, entrada_invalida, data_invalida; 404 bilhete_nao_encontrado, rota_nao_encontrada; 409 bilhete_em_aberto, bilhete_ja_encerrado, bilhete_nao_aberto. NUNCA 400.
 - Valor: `minutos` = floor(segundos / 60); `minutos` <= 15 → 0, senão `min(ceil(minutos / 30) * 225, 5000)` (tolerância não descontada). Média do relatório ao inteiro mais próximo, 0,5 sobe.
 - Bilhete: 4 chaves (`id`, `placa`, `entrada`, `status`); encerrado em consultas tem 7 (+ `saida`, `minutos`, `valor_centavos`); o POST de encerramento responde 6, sem `status`. Chaves ausentes são omitidas. `{id}` válido = `^[1-9][0-9]*$`.
