@@ -1,8 +1,8 @@
-# TASKS — Zona Azul Digital (tasks.md)
+# TASKS — Zona Azul Digital 
 
 Execute na ordem; cada tarefa só termina quando o "Pronto quando" é verificável. Gere `package.json`, `src/server.js` (um único arquivo), `tests/api.test.js`, `Dockerfile`, `Containerfile`, `.dockerignore`, `.gitignore` e `README.md`.
 
-## Contrato resumido (completo no spec.md)
+## Contrato resumido 
 - Node.js 20, Express 4, better-sqlite3, tudo JSON em português. Erros `{"erro":"<codigo>"}`: 422 placa_invalida, entrada_invalida, data_invalida; 404 bilhete_nao_encontrado, rota_nao_encontrada; 409 bilhete_em_aberto, bilhete_ja_encerrado, bilhete_nao_aberto; 500 erro_interno. NUNCA 400.
 - Variante: hora 450, fração 30 min (225), teto 5000 por bilhete, tolerância 15 min não descontada. Portas 8002 (`PORT`) e 8000 (`ALT_PORT`), UMA conexão SQLite compartilhada.
 - Bilhete: 4 chaves (`id`, `placa`, `entrada`, `status`); encerrado em consultas tem 7; a resposta do POST de encerramento tem 6, sem `status`.
