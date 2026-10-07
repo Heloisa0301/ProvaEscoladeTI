@@ -8,7 +8,7 @@ COMO construir. Gere `package.json`, `src/server.js` (um único arquivo), `tests
 - Variante: hora 450 centavos, fração 30 min (225), teto 5000 por bilhete, tolerância 15 min (não descontada); portas 8002 (`PORT`) e 8000 (`ALT_PORT`).
 - Bilhete: `id`, `placa`, `entrada`, `status` (4 chaves; encerrado acrescenta `saida`, `minutos`, `valor_centavos`). O POST de encerramento responde 6 chaves, sem `status`. Chaves ausentes são omitidas, nunca `null`.
 
-## Decisões técnicas (cada uma com justificativa)
+## Decisões técnicas
 - **D-01 Stack e arquivos:** Node.js 20, Express 4, better-sqlite3, backend em UM arquivo. Justificativa: o better-sqlite3 é síncrono (checar a placa e inserir cabem numa transação) e um arquivo só evita divergência entre janelas de geração.
 - **D-02 Persistência e portas:** UMA conexão SQLite, criada no boot e compartilhada por dois listeners em 0.0.0.0 (`PORT` 8002, `ALT_PORT` 8000; iguais = um listener só); `:memory:` por padrão, `DB_PATH` opcional. Tabela `bilhetes` (`id` AUTOINCREMENT, `placa`, `entrada_ms`, `entrada_txt`, `status`, `saida_ms`, `minutos`, `valor_centavos`) com índice único parcial em `placa` onde `status='aberto'`; o 409 é checado antes do INSERT e não consome `id`. Justificativa: cada `:memory:` é um banco distinto, e sem serviço externo o banco nasce limpo.
 - **D-03 Dinheiro e tempo:** centavos inteiros; instantes em ms UTC, exibidos por `new Date(ms - 10800000).toISOString().slice(0, 19) + '-03:00'`. Justificativa: float acumula erro (0.1 + 0.2 ≠ 0.3) e o Brasil não tem horário de verão desde 2019.
