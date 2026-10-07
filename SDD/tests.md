@@ -1,4 +1,4 @@
-# TESTS — Zona Azul Digital (tests.md)
+# TESTS — Zona Azul Digital 
 
 Casos de borda e de contrato. Gere `tests/api.test.js` com exatamente **50** chamadas literais `test('CT-NN ...', ...)`, na ordem da tabela, mais os demais arquivos do plan.md. Todo CT cita método, rota, corpo e resposta esperada.
 
