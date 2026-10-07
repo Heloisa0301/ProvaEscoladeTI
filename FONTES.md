@@ -37,7 +37,7 @@ conta. Se nenhum site foi consultado, escreva: **"Nenhum site consultado."**)*
    dúvida, o professor pede o link e pergunta sobre o código.[^plagio]
 
 | # | Link público da conversa | Onde o conteúdo foi usado |
-| --- | https://chatgpt.com/share/6ac6cb7f-4490-83e9-a288-134a0c2790fc | Revisão da escrita de todos os arquivos |
+| --- | https://chatgpt.com/share/6ac6d037-226c-83e8-a98a-41e391806fa3| Revisão da escrita de todos os arquivos |
 
 ## 3. Compromisso
 
