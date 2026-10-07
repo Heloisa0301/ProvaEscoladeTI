@@ -26,7 +26,7 @@ Regras invariantes para TODO arquivo gerado. DEVE, NUNCA, SEMPRE e PROIBIDO são
 - **R-14** O README DEVE ter execução local, testes, Docker, Podman e a tabela de rotas com os erros.
 - **R-15** `'use strict'`, `const`/`let`, `===`, sem código morto, sem log de body ou placa.
 - **R-16** NUNCA commitar segredos, `.env` ou `*.db`; `.gitignore` e `.dockerignore` listam `node_modules`, `.env`, `*.db`.
-- **R-17** Um `test('CT-NN ...')` literal por CT do tests.md, no mínimo o total declarado lá (hoje 108), sem laço; só HTTP, NUNCA importar `src/`; datas relativas a hoje.
+- **R-17** Um `test('CT-NN ...')` literal por CT do tests.md, no mínimo o total declarado lá, sem laço; só HTTP, NUNCA importar `src/`; datas relativas a hoje.
 - **R-18** Em caso de conflito entre os artefatos, a ordem de precedência é: constitution.md > spec.md > plan.md > tests.md > tasks.md. Nenhum arquivo de nível inferior pode alterar uma regra estabelecida por arquivo de nível superior.
 
 ## Verificação

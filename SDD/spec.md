@@ -48,4 +48,4 @@ Comportamento da API REST. Gere `src/server.js` (um único arquivo) conforme UC-
 - **AC-10.2** Rota inexistente → 404 `{"erro":"rota_nao_encontrada"}`; toda resposta tem `Content-Type: application/json`; JSON malformado em POST /bilhetes → 422 `placa_invalida`.
 - **AC-10.3** Falha interna → 500 `{"erro":"erro_interno"}` sem stack. Não é provocável por HTTP: não tem CT, e é PROIBIDO criar rota artificial para testá-lo.
 
-Rastreabilidade (cenários no tests.md): UC-01 (CT-22 a CT-48), UC-02 e UC-07 (CT-49 a CT-76), UC-05 (CT-77 a CT-82), UC-09 (CT-83 a CT-85), UC-08 (CT-86 a CT-91), UC-03 (CT-92 a CT-96), UC-06 (CT-97 a CT-102), UC-04 (CT-01 a CT-21), UC-10 (CT-103 a CT-108).
+Rastreabilidade (cenários no tests.md): UC-04 (CT-01 a CT-10), UC-01 (CT-11 a CT-21), UC-07 (CT-22 a CT-29), UC-02 (CT-20 e CT-30 a CT-33), UC-05 (CT-34 a CT-36), UC-09 (CT-37 e CT-38), UC-08 (CT-39 a CT-41), UC-03 (CT-42 a CT-44), UC-06 (CT-45 a CT-47), UC-10 (CT-48 a CT-50).

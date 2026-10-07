@@ -16,7 +16,7 @@ COMO construir. Gere `package.json`, `src/server.js` (um único arquivo), `tests
 - **D-05 Entrada:** regex `/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2})(\.\d+)?)?(Z|[+-]\d{2}:\d{2})?$/` e depois calendário real (mês 1-12, dia existente com bissexto, hora 0-23, min e seg 0-59). Sem offset = -03:00; se terminar em `-03:00` preserve a string em `entrada_txt`, senão devolva o instante formatado por D-03. Justificativa: `Date.parse` aceita formatos fora do contrato.
 - **D-06 Erros e middlewares:** `express.json()` só em POST /bilhetes, e erro do parser (400, 413, 415) vira 422 `placa_invalida`; encerramento e cancelamento ignoram o corpo; `:id` só vale se casar `^[1-9][0-9]*$`, senão 404; depois vêm as rotas, o 404 geral em JSON e um tratador final (500 `erro_interno`, sem stack). POST /bilhetes valida placa, entrada e conflito, nessa ordem. Justificativa: o padrão do Express responde 400 em HTML.
 - **D-07 Listas e relatório:** `ORDER BY entrada_ms DESC, id DESC`; `GET /bilhetes?placa=` compara igualdade exata (sem placa = todos; vazia, malformada ou repetida = `[]`). Relatório: `data` por `^\d{4}-\d{2}-\d{2}$` mais calendário real (ausente, repetida ou inválida = 422); `inicio = Date.UTC(ano, mes - 1, dia) + 10800000`, `fim = inicio + 86400000`, filtro `status = 'encerrado' AND saida_ms >= inicio AND saida_ms < fim`. Justificativa: o dia do relatório é o da `saida` em -03:00.
-- **D-08 Testes:** `node:test` com processo filho (`process.execPath`, `PORT=18002`, `ALT_PORT=18000`, URLs em `127.0.0.1`), um `test('CT-NN ...')` literal por CT do tests.md (108). Justificativa: sem dependência extra e testa o contrato real por HTTP.
+- **D-08 Testes:** `node:test` com processo filho (`process.execPath`, `PORT=18002`, `ALT_PORT=18000`, URLs em `127.0.0.1`), um `test('CT-NN ...')` literal por CT do tests.md (50). Justificativa: sem dependência extra e testa o contrato real por HTTP.
 - **D-09 Imagem:** `node:20-bookworm`, `npm install --omit=dev`, usuário `node`. Justificativa: o better-sqlite3 compila com as ferramentas da imagem completa se faltar o binário, e `npm ci` quebraria sem `package-lock.json`.
 
 ## Entrega
@@ -45,5 +45,5 @@ podman build -t zona-azul-digital -f Containerfile . && podman run --rm -p 8002:
 
 ## Critérios de aceite
 - **AC-P1** `npm start` responde `GET /healthz` com 200 em até 5 s, nas portas 8002 e 8000.
-- **AC-P2** `npm test` executa 108 testes e todos passam.
+- **AC-P2** `npm test` executa 50 testes e todos passam.
 - **AC-P3** `Dockerfile` e `Containerfile` são idênticos, com `EXPOSE` e `CMD`; o `package.json` lista tudo que o código importa.
