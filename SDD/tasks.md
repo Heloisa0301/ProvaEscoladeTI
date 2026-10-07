@@ -21,7 +21,7 @@ Execute na ordem; cada tarefa só termina quando o "Pronto quando" é verificáv
 
 ## Testes
 - [ ] **TK-09** `tests/api.test.js`, harness: processo filho (`process.execPath`, `PORT=18002`, `ALT_PORT=18000`), espera de `/healthz` por até 10 s, encerramento no `after`, helpers de data e de abrir, encerrar e cancelar, URLs em `127.0.0.1`. Pronto quando: `node --test tests/api.test.js` roda e encerra sem processo órfão.
-- [ ] **TK-10** Escrever os 50 `test('CT-NN ...')` literais do tests.md, na ordem, sem laço, só HTTP. Pronto quando: `grep -c "^test('CT-" tests/api.test.js` dá 108 e `npm test` passa todos.
+- [ ] **TK-10** Escrever os 50 `test('CT-NN ...')` literais do tests.md, na ordem, sem laço, só HTTP. Pronto quando: `grep -c "^test('CT-" tests/api.test.js` dá 50 e `npm test` passa todos.
 
 ## Entrega
 - [ ] **TK-11** `Dockerfile` e `Containerfile` idênticos, texto integral do plan.md (`EXPOSE 8002 8000`, `CMD ["node", "src/server.js"]`). Pronto quando: `docker build` conclui, `/healthz` responde nas duas portas e `diff Dockerfile Containerfile` é vazio.
