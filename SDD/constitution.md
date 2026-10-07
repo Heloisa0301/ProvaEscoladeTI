@@ -29,10 +29,3 @@ Regras invariantes para TODO arquivo gerado. DEVE, NUNCA, SEMPRE e PROIBIDO são
 - **R-17** Um `test('CT-NN ...')` literal por CT do tests.md, no mínimo o total declarado lá, sem laço; só HTTP, NUNCA importar `src/`; datas relativas a hoje.
 - **R-18** Em caso de conflito entre os artefatos, a ordem de precedência é: constitution.md > spec.md > plan.md > tests.md > tasks.md. Nenhum arquivo de nível inferior pode alterar uma regra estabelecida por arquivo de nível superior.
 
-## Verificação
-| Regra | Como conferir |
-| --- | --- |
-| R-01, R-05 | CT-71 e CT-107 |
-| R-02, R-03, R-07 | CT-30, CT-77 e CT-105 |
-| R-11 | CT-104 (bilhete criado na 18002 aparece na 18000) |
-| R-12, R-17 | `diff Dockerfile Containerfile` vazio; `grep -c "^test('CT-" tests/api.test.js` = total do tests.md |
