@@ -38,6 +38,7 @@ conta. Se nenhum site foi consultado, escreva: **"Nenhum site consultado."**)*
 
 | # | Link público da conversa | Onde o conteúdo foi usado |
 | --- | https://chatgpt.com/share/6ac6cb7f-4490-83e9-a288-134a0c2790fc | Revisão da escrita de todos os arquivos |
+| — | | | |
 
 ## 3. Compromisso
 
