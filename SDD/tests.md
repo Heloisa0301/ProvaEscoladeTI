@@ -33,7 +33,7 @@ Casos de borda e de contrato. Gere `tests/api.test.js` com exatamente **50** cha
 | CT-14 | 01 | `POST /bilhetes` sem corpo e sem `Content-Type`; e com `Content-Type: application/json` e corpo `{"placa":` | as duas 422 `{"erro":"placa_invalida"}` (nunca 400) |
 | CT-15 | 01 | `POST /bilhetes` `{"placa":"P000015","foo":"bar","id":99}` | 201; sem chave `foo`; `id` diferente de 99 |
 | CT-16 | 01 | `POST /bilhetes` `{"placa":"1234567"}` e `{"placa":"ABCDEFG"}` | 201 nas duas (só dígitos e só letras são válidas) |
-| CT-17 | 01 | `POST /bilhetes` com `P000017` + `entrada` `A(20)`; `Q000017` + `U(20)`; `R000017` + `W(1440)` | 201 nas três; `entrada` igual a `A(20)` (preservada), `A(20)` (UTC convertido) e `A(1440)` (sem offset assume -03:00) |
+| CT-17 | 01 | `POST /bilhetes` com `P000017` + `entrada` `A(20)`; `Q000017` + `U(20)`; `R000017` + `W(1440)`; `S000017` + `A(20)` com `.123456` inserido antes de `-03:00` | 201 nas quatro; `entrada` igual a `A(20)` (preservada), `A(20)` (UTC convertido), `A(1440)` (sem offset assume -03:00) e à string enviada com `.123456` (preservada com a fração) |
 | CT-18 | 01 | `POST /bilhetes` placa `P000018` com `entrada` `"ontem"`, `D(-1)` (só data), `1730000000` e `""` | cada uma 422 `{"erro":"entrada_invalida"}` |
 | CT-19 | 01 | `POST /bilhetes` `{"placa":"P000019","entrada":null}` | 201; `entrada` a menos de 5 s de agora |
 | CT-20 | 01 | `POST /bilhetes` `{"placa":"P000020","entrada":F(60)}` (futura); encerra | 201; encerra 200 com `minutos` 0 e `valor_centavos` 0 |

@@ -13,7 +13,7 @@ Comportamento da API REST. Gere `src/server.js` (um único arquivo) conforme UC-
 ## UC-01 — Abrir bilhete (POST /bilhetes, corpo `{"placa","entrada"?}`)
 - **AC-01.1** 201 com exatamente `id`, `placa`, `entrada`, `status` "aberto"; `entrada` omitida ou `null` = agora.
 - **AC-01.2** Placa fora de `^[A-Z0-9]{7}$` (ausente, null, número, minúscula, hífen, espaço, 6 ou 8 caracteres), corpo ausente, vazio, malformado ou array → 422 `placa_invalida`. Só dígitos e só letras são válidas. Campos extras são ignorados (`id` é do servidor).
-- **AC-01.3** `entrada` informada: `AAAA-MM-DDTHH:MM[:SS[.fff]]` com `Z`, `±HH:MM` ou sem offset (assume -03:00), em data e hora existentes; qualquer outra coisa (só data, texto, vazio, número) → 422 `entrada_invalida`. Se a string terminar em `-03:00`, a API a PRESERVA (mesmo sem segundos); nos demais casos devolve o mesmo instante normalizado. Entrada futura é aceita.
+- **AC-01.3** `entrada` informada: `AAAA-MM-DDTHH:MM[:SS[.f+]]`, onde a fração `.f+` tem 1 ou mais dígitos (só os 3 primeiros contam, sem arredondar), seguida de `Z`, `±HH:MM` ou nada (assume -03:00), em data e hora existentes; qualquer outra coisa (só data, texto, vazio, número) → 422 `entrada_invalida`. Se a string terminar em `-03:00`, a API a PRESERVA como veio (mesmo sem segundos ou com fração); nos demais casos devolve o mesmo instante normalizado, sem fração. Entrada futura é aceita.
 - **AC-01.4** Ordem de validação: placa, entrada, conflito. Placa e entrada inválidas = `placa_invalida`; entrada inválida em placa ocupada = `entrada_invalida`, não 409.
 
 ## UC-02 — Encerrar (POST /bilhetes/{id}/encerramento)
