@@ -37,10 +37,7 @@ conta. Se nenhum site foi consultado, escreva: **"Nenhum site consultado."**)*
    dúvida, o professor pede o link e pergunta sobre o código.[^plagio]
 
 | # | Link público da conversa | Onde o conteúdo foi usado |
-| --- | --- | --- |
-| — | | |
-
-*(Se nenhuma IA foi utilizada, escreva: **"Nenhuma IA utilizada."**)*
+| --- | https://chatgpt.com/share/6ac6cb7f-4490-83e9-a288-134a0c2790fc | Revisão da escrita de todos os arquivos |
 
 ## 3. Compromisso
 
@@ -48,7 +45,7 @@ Declaro que todo o conteúdo deste repositório que não é de minha autoria dir
 está declarado acima, e que consigo explicar qualquer trecho entregue — tenha
 ele vindo da minha cabeça, de um site ou de uma IA consultada.
 
-**Nome / RA:**
+Heloísa Tognólli Scarante 232114632
 
 [^transparencia]: Este arquivo é, ele mesmo, um exemplo de markdown bem
     usado: *alert* para a regra crítica, tabelas para os registros e *footnote*
