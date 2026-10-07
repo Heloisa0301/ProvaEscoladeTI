@@ -15,7 +15,8 @@
 > como fonte declarada.
 
 | # | URL | O que foi consultado | Onde aparece no entregável |
-| --- | --- | --- | --- |
+| --- | [--- ](https://expressjs.com/en/4x/api.html)| tratamento de erros, 400 padrão para JSON malformado | plan.md  |
+| --- | https://github.com/WiseLibs/better-sqlite3| persistência, banco :memory: nos testes | plan.md  |
 | — | | | |
 
 *(Ex.: `https://docs.oracle.com/...` → sintaxe de `Optional` → `plan.md` na
